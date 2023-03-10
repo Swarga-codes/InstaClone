@@ -1,5 +1,6 @@
 .SideNav{
-    border: 2px solid gray;
+    border-right: 2px solid gray;
+    border-right-width: 1px;
     flex: 0.15;
     color: #fff;
     padding: 2.5rem 0.5rem;
