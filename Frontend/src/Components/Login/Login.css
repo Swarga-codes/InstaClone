@@ -1,0 +1,48 @@
+.login{
+    border: 2px solid gray;
+    width: fit-content;
+    text-align: center;
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10rem;
+}
+.login_logo img{
+    width: 80%;
+}
+.login_fields{
+    margin-top: 4rem;
+}
+.login_fields input{
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 15rem;
+    color: #fff;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.LoginBtn{
+    margin-top: 1rem;
+    width: 16rem;
+     background-color: rgb(0, 149, 246);
+     letter-spacing: 0.1px;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.noaccount{
+    margin-top: 3rem;
+    color: #fff;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+}
+.noaccount span{
+    color: rgb(0, 149, 246);
+    text-decoration: none;
+    font-weight: bold;
+}
