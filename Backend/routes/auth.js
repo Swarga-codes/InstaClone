@@ -12,6 +12,7 @@ router.get('/',(req,res)=>{
 router.get('/about',(req,res)=>{
     res.json("I am about")
 })
+//signup user
 router.post('/signup',(req,res)=>{
     const {email,name,userName,password}=req.body;
     if(!email || !name || !userName || !password){
@@ -33,5 +34,24 @@ user.save()
 .catch((err)=>{console.log(err)});
 })
 })
+})
+//sign in user
+router.post("/signin",(req,res)=>{
+   const {email,password}=req.body;
+   if(!email || !password){
+    return res.status(422).json({error:'The fields cannot be empty'});
+   }
+   USER.findOne({email:email}).then((savedUser)=>{
+    if(!savedUser){
+        return res.status(404).json({error:'User not found!!'});
+    }
+   bcrypt.compare(password,savedUser.password).then((match)=>{
+    if(match){
+       return res.status(200).json({message:'User authenticated successfully'});
+    }else{
+    return res.status(422).json({error:'Incorrect password'});
+    }
+   }).catch(err=> console.log(err));
+   })
 })
 module.exports=router
