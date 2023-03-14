@@ -4,6 +4,8 @@ const router=express.Router();
 const data=require('../data');
 const USER=mongoose.model("USER");
 const bcrypt=require('bcrypt');
+const cors=require('cors');
+router.use(cors())
 router.get('/',(req,res)=>{
     res.json(data);
 })
