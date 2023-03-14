@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './Login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
 function Login() {
+  const navigate=useNavigate();
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
   const LoginUser = () =>{
@@ -12,12 +13,21 @@ function Login() {
         'Content-Type':'application/json'
       },
       body: JSON.stringify({
-        email,
-        password
+        email:email,
+        password:password
       })
-    }).then(res=>res.json)
-    .then(data=>console.log('user authenticated successfully!'))
-    .catch(err=>console.log(err));
+    }).then(res=>res.json())
+    .then(data=>{
+      if(data.error){
+     console.log('User unauthenticated..')
+      }
+      else{
+        console.log('user authenticated successfully!')
+        navigate('/');
+      }
+  
+    })
+  
   }
   return (
     <div className='login'>
