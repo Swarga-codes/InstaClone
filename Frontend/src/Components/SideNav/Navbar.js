@@ -24,7 +24,7 @@ function Navbar() {
      <SideRoutes Icon={MovieIcon} name="Reels"/>
      <SideRoutes Icon={SendIcon} name="Messages"/>
      <SideRoutes Icon={FavoriteBorderIcon} name="Notifications"/>
-     <SideRoutes Icon={AddBoxIcon} name="Create"/>
+     <Link to='/createposts'><SideRoutes Icon={AddBoxIcon} name="Create"/></Link>
      <Link to='/profile'><SideRoutes Icon={PersonIcon} name="Profile"/></Link>
       </div>
     </div>
