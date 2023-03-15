@@ -12,7 +12,7 @@
     width: 80%;
 }
 .login_fields{
-    margin-top: 4rem;
+    margin-top: 1rem;
 }
 .login_fields input{
     padding: 0.5rem 0.5rem;
@@ -45,4 +45,21 @@
     color: rgb(0, 149, 246);
     text-decoration: none;
     font-weight: bold;
+}
+.error{
+    text-align: left;
+  margin-top: 2rem;
+    background: red;
+    padding: 0.5rem 0.6rem;
+    border-radius: 5px;
+}
+.error p{
+    font-weight: bolder;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+    color: #fff;
+    background: red;
+}
+.cross{
+    background: red;
+    float: right;
 }

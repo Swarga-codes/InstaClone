@@ -20,6 +20,8 @@ function Login() {
     .then(data=>{
       if(data.error){
      console.log('User unauthenticated..')
+    
+   
       }
       else{
         console.log('user authenticated successfully!')
@@ -34,7 +36,13 @@ function Login() {
     <div className="login_logo">
     <img src={Logo} alt="" />
     </div>
+
+   
+    
+    
+    
     <div className="login_fields">
+   
     <div>
   <input type="email" name='email' id='email' placeholder='Enter email' onChange={(e)=>setEmail(e.target.value)}/>
   </div>

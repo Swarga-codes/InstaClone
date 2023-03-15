@@ -1,9 +1,11 @@
 .SideNav{
     border-right: 2px solid gray;
     border-right-width: 1px;
-    flex: 0.15;
+    flex: 0.2;
     color: #fff;
     padding: 2.5rem 0.5rem;
+    position: fixed;
+    height: 100%;
     
 }
 .app_logo img{
