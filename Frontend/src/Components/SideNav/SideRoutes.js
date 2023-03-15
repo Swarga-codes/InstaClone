@@ -4,7 +4,7 @@ function SideRoutes({Icon,name}) {
   return (
     
     <div className="route_name">
-    <Icon className="route_icon"/>
+    <Icon className="route_icon" sx={{color:'#fff'}}/>
     <p>{name}</p>
     </div>
   )

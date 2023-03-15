@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import {BrowserRouter, Routes,Route} from 'react-router-dom';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
+import Profile from './Components/Profile/Profile';
 
 function App() {
   async function fetchData(){
@@ -22,6 +23,7 @@ function App() {
     <Route exact path='/' element={<Body/>}/>
     <Route exact path='/login' element={<Login/>}/>
     <Route exact path='/signup' element={<SignUp/>}/>
+    <Route exact path='/profile' element={<Profile/>}/>
     </Routes>
     </BrowserRouter>
   );

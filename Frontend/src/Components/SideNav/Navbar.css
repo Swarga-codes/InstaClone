@@ -27,6 +27,7 @@
     font-size: 18px;
     color: gray;
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+text-decoration: none;
 }
 .route_name p:hover{
     color: #fff;

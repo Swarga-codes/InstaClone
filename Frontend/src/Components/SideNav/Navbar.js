@@ -10,6 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className="SideNav">
@@ -17,14 +18,14 @@ function Navbar() {
       <img src={Logo} alt="" />
       </div>
       <div className="nav_routes">
-     <SideRoutes Icon={HomeIcon} name="Home"/>
+     <Link to='/'><SideRoutes Icon={HomeIcon} name="Home"/></Link>
      <SideRoutes Icon={SearchIcon} name="Search"/>
      <SideRoutes Icon={ExploreIcon} name="Explore"/>
      <SideRoutes Icon={MovieIcon} name="Reels"/>
      <SideRoutes Icon={SendIcon} name="Messages"/>
      <SideRoutes Icon={FavoriteBorderIcon} name="Notifications"/>
      <SideRoutes Icon={AddBoxIcon} name="Create"/>
-     <SideRoutes Icon={PersonIcon} name="Profile"/>
+     <Link to='/profile'><SideRoutes Icon={PersonIcon} name="Profile"/></Link>
       </div>
     </div>
   );
