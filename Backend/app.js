@@ -2,7 +2,9 @@ const express=require('express');
 const app=express();
  const cors=require('cors');
  const mongoose=require('mongoose');
- const mongoUrl=require('./keys');
+ const {mongoUrl}=require('./keys');
+ const jwt=require('jsonwebtoken');
+ const {Secret_key}=require('./keys');
  mongoose.connect(mongoUrl);
  require('./model')
  const routes=require('./routes/auth');

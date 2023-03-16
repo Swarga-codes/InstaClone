@@ -5,12 +5,18 @@ const data=require('../data');
 const USER=mongoose.model("USER");
 const bcrypt=require('bcrypt');
 const cors=require('cors');
+const jwt=require('jsonwebtoken');
+const { Secret_key } = require('../keys');
+const CheckLogin = require('../middlewares/CheckLogin');
 router.use(cors())
 router.get('/',(req,res)=>{
     res.json(data);
 })
 router.get('/about',(req,res)=>{
     res.json("I am about")
+})
+router.get('/createPosts',CheckLogin,(req,res)=>{
+console.log('hello auth..');
 })
 //signup user
 router.post('/signup',(req,res)=>{
@@ -47,7 +53,10 @@ router.post("/signin",(req,res)=>{
     }
    bcrypt.compare(password,savedUser.password).then((match)=>{
     if(match){
-       return res.status(200).json({message:'User authenticated successfully'});
+    //    return res.status(200).json({message:'User authenticated successfully'});
+    const token=jwt.sign({_id:savedUser.id},Secret_key);
+    res.status(200).json({token:token});
+    console.log(token);
     }else{
     return res.status(422).json({error:'Incorrect password'});
     }
