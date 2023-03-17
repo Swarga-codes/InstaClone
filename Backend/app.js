@@ -6,11 +6,12 @@ const app=express();
  const jwt=require('jsonwebtoken');
  const {Secret_key}=require('./keys');
  mongoose.connect(mongoUrl);
- require('./model')
+ require('./models/model')
+ require('./models/posts')
  const routes=require('./routes/auth');
  app.use(express.json())
  app.use(routes)
-
+app.use(require('./routes/createPosts'));
 
  
  mongoose.connection.on('connected',()=> {
