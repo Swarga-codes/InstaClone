@@ -3,6 +3,12 @@ const router=express.Router();
 const mongoose=require('mongoose');
 const CheckLogin = require('../middlewares/CheckLogin');
 const POSTS=mongoose.model('POSTS');
+router.get('/posts',CheckLogin,(req,res)=>{
+    POSTS.find()
+    .populate('postedBy',"_id userName")
+    .then(posts=>res.json(posts))
+    .catch(err=>console.log(err));
+})
 router.post('/createPosts',CheckLogin,(req,res)=>{
     const{body,pics}=req.body
     if(!body || !pics){
