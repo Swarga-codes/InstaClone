@@ -2,7 +2,7 @@
 import './App.css';
 import Body from './Components/Body/Body';
 import { useEffect, useState } from 'react';
-import {BrowserRouter, Routes,Route, useNavigate} from 'react-router-dom';
+import {Routes,Route, useNavigate} from 'react-router-dom';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
 import Profile from './Components/Profile/Profile';

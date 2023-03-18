@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
