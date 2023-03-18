@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
 function Posts() {
- 
-  
+
   return (
     <div className='Post'>
     <div className="post_header">

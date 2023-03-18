@@ -25,6 +25,7 @@ function Login() {
       }
       else{
         console.log('user authenticated successfully!')
+        localStorage.setItem('jwt',data.token);
         navigate('/');
       }
   
