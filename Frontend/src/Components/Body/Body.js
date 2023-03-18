@@ -3,6 +3,7 @@ import Posts from '../Posts/Posts'
 import Navbar from '../SideNav/Navbar'
 import './Body.css'
 function Body() {
+ 
   return (
     <div className='Body'>
     <Navbar/>
