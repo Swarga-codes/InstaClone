@@ -30,4 +30,32 @@ posts.save().then((data)=>{
    return res.json({posts:data})
 }).catch(err=>console.log(err));
 })
+router.put('/likes',CheckLogin,(req,res)=>{
+    POSTS.findByIdAndUpdate(req.body.postId,{
+        $push:{likes:req.user._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+           return res.status(422).json({error:err})
+        }
+else{
+    res.status(200).json(result)
+}
+    })
+})
+router.put('/unlikes',CheckLogin,(req,res)=>{
+    POSTS.findByIdAndUpdate(req.body.postId,{
+        $pull:{likes:req.user._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+           return res.status(422).json({error:err})
+        }
+else{
+    res.status(200).json(result)
+}
+    })
+})
 module.exports=router
