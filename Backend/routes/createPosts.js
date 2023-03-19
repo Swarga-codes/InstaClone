@@ -9,6 +9,12 @@ router.get('/posts',CheckLogin,(req,res)=>{
     .then(posts=>res.json(posts))
     .catch(err=>console.log(err));
 })
+router.get('/profilepage',CheckLogin,(req,res)=>{
+    POSTS.find({postedBy:req.user._id})
+    .populate('postedBy')
+    .then(posts=>res.json(posts))
+    .catch(err=>console.log(err));
+})
 router.post('/createPosts',CheckLogin,(req,res)=>{
     const{body,pics}=req.body
     if(!body || !pics){
