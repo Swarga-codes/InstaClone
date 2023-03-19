@@ -11,7 +11,7 @@ router.get('/posts',CheckLogin,(req,res)=>{
 })
 router.get('/profilepage',CheckLogin,(req,res)=>{
     POSTS.find({postedBy:req.user._id})
-    .populate('postedBy')
+    .populate('postedBy','_id userName')
     .then(posts=>res.json(posts))
     .catch(err=>console.log(err));
 })
