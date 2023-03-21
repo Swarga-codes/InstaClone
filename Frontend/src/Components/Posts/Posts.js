@@ -1,11 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 function Posts({dat}) {
-
+const[like,setLike]=useState(false);
+const clickLike=()=>{
+  setLike(!like);
+}
   return (
     <div className='Post'>
     <div className="post_header">
@@ -18,7 +22,12 @@ function Posts({dat}) {
   <div className="post_footer">
   <div className="post_actions">
   <div className='post_like'>
-  <FavoriteBorderIcon className='like'/>
+  {like?
+    <FavoriteIcon className='unlike' sx={{color:'crimson'}} onClick={clickLike}/>
+  :
+
+<FavoriteBorderIcon className='like' onClick={clickLike}/>
+  }
   <p>1 like</p>
   </div>
   </div>
