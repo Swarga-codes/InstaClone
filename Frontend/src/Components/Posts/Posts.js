@@ -1,15 +1,15 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-function Posts({dat}) {
-const[like,setLike]=useState(false);
-const clickLike=()=>{
-  setLike(!like);
-}
+function Posts({dat,likePosts,UnlikePosts}) {
+// const[like,setLike]=useState(false);
+// const clickLike=()=>{
+//   setLike(!like);
+// }
   return (
     <div className='Post'>
     <div className="post_header">
@@ -22,13 +22,18 @@ const clickLike=()=>{
   <div className="post_footer">
   <div className="post_actions">
   <div className='post_like'>
-  {like?
-    <FavoriteIcon className='unlike' sx={{color:'crimson'}} onClick={clickLike}/>
-  :
-
-<FavoriteBorderIcon className='like' onClick={clickLike}/>
-  }
-  <p>1 like</p>
+  {dat.likes.includes(JSON.parse(localStorage.getItem("users"))._id)?
+    <FavoriteIcon className='unlike' sx={{color:'crimson'}} onClick={()=>{
+      UnlikePosts(dat._id);
+    
+    }}/>
+  
+:
+<FavoriteBorderIcon className='like' onClick={()=>{
+likePosts(dat._id);
+}}/>
+}
+  <p>{dat.likes.length} likes</p>
   </div>
   </div>
   <div className="post_caption">

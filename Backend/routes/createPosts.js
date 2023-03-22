@@ -35,27 +35,20 @@ router.put('/likes',CheckLogin,(req,res)=>{
         $push:{likes:req.user._id}
     },{
         new:true
-    }).exec((err,result)=>{
-        if(err){
-           return res.status(422).json({error:err})
-        }
-else{
-    res.status(200).json(result)
-}
-    })
-})
+    }).populate('postedBy','_id name photo')
+    .then(result=>{res.json(result);})
+    .catch(err=>res.status(422).json({error:err}))
+});
 router.put('/unlikes',CheckLogin,(req,res)=>{
     POSTS.findByIdAndUpdate(req.body.postId,{
         $pull:{likes:req.user._id}
     },{
         new:true
-    }).exec((err,result)=>{
-        if(err){
-           return res.status(422).json({error:err})
-        }
-else{
-    res.status(200).json(result)
-}
-    })
-})
+    }).populate('postedBy','_id name photo')
+    .then(result=>{res.json(result)})
+    .catch(err=>res.status(422).json({error:err}))
+});
+
+
+ 
 module.exports=router
