@@ -48,7 +48,18 @@ router.put('/unlikes',CheckLogin,(req,res)=>{
     .then(result=>{res.json(result)})
     .catch(err=>res.status(422).json({error:err}))
 });
-
+router.put('/comments',(req,res)=>{
+    const comment={
+        comment:req.body.text,
+        author:req.user._id
+    };
+    POSTS.findByIdAndUpdate(req.body.postId,{
+        $push:{comments:comment},
+    },{
+        new:true
+    }).then(result=>res.json(result))
+    .catch(err=>res.status(422).json({error:err}))
+})
 
  
 module.exports=router
