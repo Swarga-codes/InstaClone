@@ -16,7 +16,7 @@ const postsSchema = new mongoose.Schema({
     }],
     comments:[{
         comment:{type:String},
-        author:{type:ObjectId,ref:"USER"}
+        postedBy:{type:ObjectId,ref:"USER"}
     }],
     postedBy:{
         type:ObjectId,

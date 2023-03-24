@@ -5,7 +5,8 @@ const CheckLogin = require('../middlewares/CheckLogin');
 const POSTS=mongoose.model('POSTS');
 router.get('/posts',CheckLogin,(req,res)=>{
     POSTS.find()
-    .populate('postedBy',"_id userName")
+    .populate("postedBy","_id name")
+    .populate("comments.postedBy","_id name")
     .then(posts=>res.json(posts))
     .catch(err=>console.log(err));
 })
@@ -48,16 +49,18 @@ router.put('/unlikes',CheckLogin,(req,res)=>{
     .then(result=>{res.json(result)})
     .catch(err=>res.status(422).json({error:err}))
 });
-router.put('/comments',(req,res)=>{
+router.put('/comments',CheckLogin,(req,res)=>{
     const comment={
         comment:req.body.text,
-        author:req.user._id
+        postedBy:req.user._id
     };
     POSTS.findByIdAndUpdate(req.body.postId,{
         $push:{comments:comment},
     },{
         new:true
-    }).then(result=>res.json(result))
+    }).populate('comments.postedBy','_id name')
+    .populate('postedBy','_id name photo')
+    .then(result=>res.json(result))
     .catch(err=>res.status(422).json({error:err}))
 })
 

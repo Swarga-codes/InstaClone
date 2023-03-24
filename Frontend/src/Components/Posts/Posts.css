@@ -78,3 +78,7 @@
     background: transparent;
     border: none;
 }
+.view_comments{
+    margin-left: 0.5rem;
+    cursor: pointer;
+}

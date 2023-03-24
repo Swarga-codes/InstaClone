@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-function Posts({dat,likePosts,UnlikePosts}) {
-// const[like,setLike]=useState(false);
-// const clickLike=()=>{
-//   setLike(!like);
-// }
+function Posts({dat,id,likePosts,UnlikePosts,comms}) {
+const[comment,setComment]=useState('');
+const createComment=(text,id)=>{
+  fetch("http://localhost:5000/comments",{
+    method:'PUT',
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:"Bearer "+localStorage.getItem('jwt')
+    }
+    ,
+    body:JSON.stringify({
+      text:text,
+      postId:id
+    })
+  }).then(res=>res.json())
+  .then(data=>console.log(data))
+  .catch(err=>console.log(err))
+}
   return (
     <div className='Post'>
     <div className="post_header">
@@ -39,9 +52,12 @@ likePosts(dat._id);
   <div className="post_caption">
   <p>{dat.body}</p>
   </div>
+  <div className="view_comments">
+  <p onClick={()=>{comms(dat);}}><b>View all comments</b></p>
+  </div>
   <div className="comment_box">
-  <input type="text" name='comment' id='name' placeholder='Enter a comment...'/>
-  <button><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
+  <input type="text" name='comment' id='name' placeholder='Enter a comment...' onChange={(e)=>setComment(e.target.value)}/>
+  <button onClick={()=>createComment(comment,id)}><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
   </div>
   </div>
     </div>
