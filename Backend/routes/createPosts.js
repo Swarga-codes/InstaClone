@@ -59,6 +59,7 @@ router.put('/comments',CheckLogin,(req,res)=>{
     },{
         new:true
     })
+    .populate('postedBy','_id name userName')
     .populate("comments.postedBy","_id name userName")
     .then(result=>res.json(result))
     .catch(err=>res.status(422).json({error:err}))

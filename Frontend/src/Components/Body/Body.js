@@ -1,13 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Posts from '../Posts/Posts'
 import SendIcon from '@mui/icons-material/Send';
 import Navbar from '../SideNav/Navbar'
 import './Body.css'
 import CloseIcon from '@mui/icons-material/Close';
+import { commentContext } from '../../context/comments';
 function Body() {
   const[data,setData]=useState([]);
   const[showComment,setShowComment]=useState(false);
+  const{comment,setComment}=useContext(commentContext);
   const[items,setItem]=useState([]);
+  const createComment=(text,id)=>{
+    fetch("http://localhost:5000/comments",{
+      method:'PUT',
+      headers:{
+        'Content-Type':'application/json',
+        Authorization:"Bearer "+localStorage.getItem('jwt')
+      }
+      ,
+      body:JSON.stringify({
+        text:text,
+        postId:id
+      })
+    }).then(res=>res.json())
+    .then(response=>{console.log(response);
+    updatePage(response);
+    })
+    .catch(err=>console.log(err))
+  }
+  const updatePage=(result)=>{
+    const updatedData= data.map((posts)=>{
+      if(posts._id===result._id){
+        return result;
+      }
+      else{
+        return posts;
+      }
+    })
+    setData(updatedData);
+  }
   const clickComment=(posts)=>{
     if(!showComment){
       setShowComment(true);
@@ -31,15 +62,16 @@ const likePosts = (id)=>{
     })
   }).then(res=>res.json())
   .then(result=>{console.log(result);
-  const updatedData= data.map((posts)=>{
-    if(posts._id===result._id){
-      return result;
-    }
-    else{
-      return posts;
-    }
-  })
-  setData(updatedData)
+  // const updatedData= data.map((posts)=>{
+  //   if(posts._id===result._id){
+  //     return result;
+  //   }
+  //   else{
+  //     return posts;
+  //   }
+  // })
+  // setData(updatedData)
+  updatePage(result);
   })
   .catch(err=>console.log(err))
 }
@@ -85,7 +117,7 @@ const UnlikePosts = (id)=>{
     <Navbar/>
     <div className="all_posts">
 {data.map(d=>(
-  <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment}/>
+  <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
  
 ))
 
@@ -116,8 +148,10 @@ const UnlikePosts = (id)=>{
 
 <div className="add_comment">
 
-<input type="text" name='comment' id='name' placeholder='Enter a comment...'/>
-<button><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
+<input type="text" name='comment' id='name' placeholder='Enter a comment...' onChange={(e)=>setComment(e.target.value)}/>
+<button onClick={()=>{createComment(comment,items._id);
+clickComment();
+}}><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
 </div>
 </div>
 </div>

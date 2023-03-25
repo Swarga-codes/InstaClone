@@ -1,28 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext} from 'react'
 import './Posts.css'
 // import Kratos from '../../assets/kratos.jpg'
 // import GoW from '../../assets/GoW.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-function Posts({dat,id,likePosts,UnlikePosts,comms}) {
-const[comment,setComment]=useState('');
-const createComment=(text,id)=>{
-  fetch("http://localhost:5000/comments",{
-    method:'PUT',
-    headers:{
-      'Content-Type':'application/json',
-      Authorization:"Bearer "+localStorage.getItem('jwt')
-    }
-    ,
-    body:JSON.stringify({
-      text:text,
-      postId:id
-    })
-  }).then(res=>res.json())
-  .then(data=>{console.log(data)})
-  .catch(err=>console.log(err))
-}
+import { commentContext } from '../../context/comments';
+function Posts({dat,id,likePosts,UnlikePosts,comms,createComment}) {
+const{comment,setComment}=useContext(commentContext);
+
   return (
     <div className='Post'>
     <div className="post_header">

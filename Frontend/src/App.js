@@ -1,4 +1,3 @@
-
 import './App.css';
 import Body from './Components/Body/Body';
 import { useEffect, useState } from 'react';
@@ -8,8 +7,11 @@ import SignUp from './Components/SignUp/SignUp';
 import Profile from './Components/Profile/Profile';
 import CreatePosts from './Components/CreatePosts/CreatePosts';
 // import Navbar from './Components/SideNav/Navbar';
+import {commentContext} from './context/comments'
+
 
 function App() {
+  const[comment,setComment]=useState('');
   const navigate=useNavigate();
   const[tokenVal,setToken]=useState('')
   const checkToken=()=>{
@@ -30,7 +32,7 @@ function App() {
   }, [tokenVal])
   
   return (
-  
+  <commentContext.Provider value={{comment,setComment}}>
     <Routes>
  
       <Route exact path='/' element={<Body/>}/>
@@ -43,7 +45,7 @@ function App() {
     <Route exact path='/profile' element={<Profile/>}/>
     <Route exact path='/createposts' element={<CreatePosts/>}/>
     </Routes>
-   
+    </commentContext.Provider>
   );
 }
 
