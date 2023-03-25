@@ -5,8 +5,8 @@ const CheckLogin = require('../middlewares/CheckLogin');
 const POSTS=mongoose.model('POSTS');
 router.get('/posts',CheckLogin,(req,res)=>{
     POSTS.find()
-    .populate("postedBy","_id name")
-    .populate("comments.postedBy","_id name")
+    .populate("postedBy","_id name userName")
+    .populate("comments.postedBy","_id name userName")
     .then(posts=>res.json(posts))
     .catch(err=>console.log(err));
 })
@@ -58,8 +58,8 @@ router.put('/comments',CheckLogin,(req,res)=>{
         $push:{comments:comment},
     },{
         new:true
-    }).populate('comments.postedBy','_id name')
-    .populate('postedBy','_id name photo')
+    })
+    .populate("comments.postedBy","_id name userName")
     .then(result=>res.json(result))
     .catch(err=>res.status(422).json({error:err}))
 })

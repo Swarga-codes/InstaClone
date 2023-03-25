@@ -98,22 +98,20 @@ const UnlikePosts = (id)=>{
 <div className="comment_display">
 <div className="user_header">
 <img src='https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo' alt="" />
-<p></p>
+<p>{items.postedBy?.userName}</p>
 </div>
 <div className="comment_section">
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
-<p><b>iammarkus</b>&nbsp; &nbsp; Woahhh!!</p>
+{items?.comments?.map((com)=>{
+  return(
+  <p><b>{com?.postedBy?.userName}</b>&nbsp; &nbsp;{com.comment}</p>
+)})}
+
+
 </div>
 <div className="likes_caption">
-<p> likes</p>
+<p>{items?.likes?.length} likes</p>
 <br />
-<p></p>
+<p>{items.body}</p>
 </div>
 
 <div className="add_comment">
