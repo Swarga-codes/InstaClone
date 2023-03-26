@@ -64,6 +64,20 @@ router.put('/comments',CheckLogin,(req,res)=>{
     .then(result=>res.json(result))
     .catch(err=>res.status(422).json({error:err}))
 })
-
+router.delete('/delposts/:postId',CheckLogin,(req,res)=>{
+    POSTS.findOne({_id:req.params.postId})
+    .populate('postedBy','_id')
+  .then(data=>{
+    if(!data){
+        return res.status(422).json({error:data});
+    }
+    if(req.user._id.toString()==data.postedBy._id.toString()){
+      data.deleteOne({_id:req.params.postId})
+        return res.json({message:'Post Deleted successfully'})
+        
+    }
+  }).catch(err=>res.status(422).json({error:err}))
+    
+})
  
 module.exports=router
