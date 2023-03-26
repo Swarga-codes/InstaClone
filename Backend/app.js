@@ -12,6 +12,7 @@ const app=express();
  app.use(express.json())
  app.use(routes)
 app.use(require('./routes/createPosts'));
+app.use(require('./routes/user'))
 
  
  mongoose.connection.on('connected',()=> {
