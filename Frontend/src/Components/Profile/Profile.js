@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import PostDetails from '../PostDetails/PostDetails';
 import Navbar from '../SideNav/Navbar'
 import './Profile.css'
 function Profile() {
   const[posts,setPosts]=useState([]);
   const[profileName,setprofileName]=useState('');
+  const[getPost,setgetPost]=useState([]);
+  const[show,setShow]=useState(false);
+  const detailDisp=(getPost)=>{
+    if(show){
+setShow(false);
+    }
+    else{
+      setShow(true);
+      setgetPost(getPost);
+    }
+  }
   useEffect(()=>{
 fetch('http://localhost:5000/profilepage',{
   method:'GET',
@@ -40,9 +52,16 @@ setprofileName(data[0].postedBy.userName);
    {/* Gallery Section */}
    <div className="users_posts">
    {posts.map(post=>(
-    <img src={post.photo} alt="" />
+    <img src={post.photo} alt="" onClick={()=>{
+      detailDisp(post);
+    }}/>
    ))}
    </div>
+   {
+    show &&
+    <PostDetails items={getPost} detailDisp={detailDisp}/>
+   }
+   
     </div>
   )
 }
