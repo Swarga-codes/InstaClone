@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SendIcon from '@mui/icons-material/Send';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { commentContext } from '../../context/comments';
+import { Link } from 'react-router-dom';
 function Posts({dat,id,likePosts,UnlikePosts,comms,createComment}) {
 const{comment,setComment}=useContext(commentContext);
 
@@ -13,7 +14,7 @@ const{comment,setComment}=useContext(commentContext);
     <div className='Post'>
     <div className="post_header">
     <img src="https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo" alt="" />
-    <p>{dat.postedBy.userName}</p>
+    <p><Link to={`/profiles/${dat.postedBy._id}`}>{dat.postedBy.userName}</Link></p>
     </div>
   <div className="post_content">
   <img src={dat.photo} alt="" />

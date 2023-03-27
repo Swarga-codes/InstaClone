@@ -8,6 +8,7 @@ import Profile from './Components/Profile/Profile';
 import CreatePosts from './Components/CreatePosts/CreatePosts';
 // import Navbar from './Components/SideNav/Navbar';
 import {commentContext} from './context/comments'
+import UserProfile from './Components/UserProfile/UserProfile';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     if(token){
       console.log('I have a token!');
       setToken(token);
-     navigate('/');
+    //  navigate('/');
     }
     else{
       console.log('I dont have !')
@@ -44,6 +45,7 @@ function App() {
     <Route exact path='/signup' element={<SignUp/>}/>
     <Route exact path='/profile' element={<Profile/>}/>
     <Route exact path='/createposts' element={<CreatePosts/>}/>
+    <Route exact path='/profiles/:userId' element={<UserProfile/>}/>
     </Routes>
     </commentContext.Provider>
   );
