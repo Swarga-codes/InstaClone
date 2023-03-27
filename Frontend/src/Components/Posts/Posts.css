@@ -82,3 +82,7 @@
     margin-left: 0.5rem;
     cursor: pointer;
 }
+.post_header p a{
+    text-decoration: none;
+    color: #fff;
+}

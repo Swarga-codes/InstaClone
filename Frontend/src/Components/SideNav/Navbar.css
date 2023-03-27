@@ -14,6 +14,10 @@
 .nav_routes{
     margin-top: 2rem;
 }
+.nav_routes a{
+    color: gray;
+    text-decoration: none;
+}
 .route_name{
     display: flex;
     text-align: center;
