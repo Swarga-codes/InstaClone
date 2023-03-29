@@ -38,8 +38,8 @@ router.put('/likes',CheckLogin,(req,res)=>{
         $push:{likes:req.user._id}
     },{
         new:true
-    }).populate('postedBy','_id name photo')
-    .then(result=>{res.json(result);})
+    }).populate('postedBy','_id name userName photo')
+    .then(result=>{res.json(result);}) 
     .catch(err=>res.status(422).json({error:err}))
 });
 router.put('/unlikes',CheckLogin,(req,res)=>{
@@ -47,7 +47,7 @@ router.put('/unlikes',CheckLogin,(req,res)=>{
         $pull:{likes:req.user._id}
     },{
         new:true
-    }).populate('postedBy','_id name photo')
+    }).populate('postedBy','_id name userName photo')
     .then(result=>{res.json(result)})
     .catch(err=>res.status(422).json({error:err}))
 });
@@ -81,5 +81,11 @@ router.delete('/delposts/:postId',CheckLogin,(req,res)=>{
   }).catch(err=>res.status(422).json({error:err}))
     
 })
- 
+ router.get('/followingpostsonly',CheckLogin,(req,res)=>{
+    POSTS.find({postedBy:{$in:req.user.following}})
+    .populate('postedBy','_id name userName')
+    .populate('comments.postedBy','_id name')
+    .then(results=>res.json(results))
+    .catch(err=>res.staus(422).json({error:err}))
+ })
 module.exports=router
