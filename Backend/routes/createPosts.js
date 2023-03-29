@@ -83,6 +83,7 @@ router.delete('/delposts/:postId',CheckLogin,(req,res)=>{
 })
  router.get('/followingpostsonly',CheckLogin,(req,res)=>{
     POSTS.find({postedBy:{$in:req.user.following}})
+    .sort({_id:-1})
     .populate('postedBy','_id name userName')
     .populate('comments.postedBy','_id name')
     .then(results=>res.json(results))

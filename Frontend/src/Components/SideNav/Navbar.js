@@ -26,7 +26,7 @@ function Navbar() {
       <div className="nav_routes">
      <Link to='/'><SideRoutes Icon={HomeIcon} name="Home"/></Link>
      <SideRoutes Icon={SearchIcon} name="Search"/>
-     <SideRoutes Icon={ExploreIcon} name="Explore"/>
+     <Link to='/myfollowing'><SideRoutes Icon={ExploreIcon} name="Explore"/></Link>
      <SideRoutes Icon={MovieIcon} name="Reels"/>
      <SideRoutes Icon={SendIcon} name="Messages"/>
      <Link to='/createposts'><SideRoutes Icon={AddBoxIcon} name="Create"/></Link>

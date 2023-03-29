@@ -9,6 +9,7 @@ import CreatePosts from './Components/CreatePosts/CreatePosts';
 // import Navbar from './Components/SideNav/Navbar';
 import {commentContext} from './context/comments'
 import UserProfile from './Components/UserProfile/UserProfile';
+import MyFollow from './Components/MyFollowing/MyFollow';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 
 
     <Route exact path='/signup' element={<SignUp/>}/>
+    <Route exact path='/myfollowing' element={<MyFollow/>}/>
     <Route exact path='/profile' element={<Profile/>}/>
     <Route exact path='/createposts' element={<CreatePosts/>}/>
     <Route exact path='/profiles/:userId' element={<UserProfile/>}/>
