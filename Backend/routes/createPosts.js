@@ -5,6 +5,7 @@ const CheckLogin = require('../middlewares/CheckLogin');
 const POSTS=mongoose.model('POSTS');
 router.get('/posts',CheckLogin,(req,res)=>{
     POSTS.find()
+    .sort({_id:-1})
     .populate("postedBy","_id name userName")
     .populate("comments.postedBy","_id name userName")
     .then(posts=>res.json(posts))

@@ -9,6 +9,8 @@ function UserProfile() {
   const[postCount,setPostCount]=useState();
   const[userInfo,setuserInfo]=useState("");
   const[isFollow,setisFollow]=useState(false);
+  const[followers,setfollowers]=useState(0);
+  const[following,setfollowing]=useState(0);
   // const[getPost,setgetPost]=useState([]);
   // const[show,setShow]=useState(false);
   const{userId}=useParams()
@@ -65,6 +67,8 @@ fetch(`http://localhost:5000/users/${userId}`,{
 }).then(res=>res.json())
 .then(data=>{console.log("Profile data ",data);
 setPosts(data.result);
+setfollowers(data.data[0].followers.length);
+setfollowing(data.data[0].following.length);
 setPostCount(data.result.length)
 setprofileName(data.data[0].userName);
 setuserInfo(data.data[0]._id)
@@ -93,8 +97,8 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
    
    <div className="profile_reach">
    <p>{postCount} Posts</p>
-   <p>0 Followers</p>
-   <p>0 Following</p>
+   <p>{followers} Followers</p>
+   <p>{following} Following</p>
     </div>
    </div>
 

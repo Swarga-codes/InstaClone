@@ -41,7 +41,7 @@ setprofileName(data[0].postedBy.userName);
    <div className="profile_name">
    <h1>{profileName}</h1>
    <div className="profile_reach">
-   <p>0 Posts</p>
+   <p>{posts.length} Posts</p>
    <p>0 Followers</p>
    <p>0 Following</p>
     </div>
