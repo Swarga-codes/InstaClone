@@ -53,4 +53,12 @@ router.put('/unfollow',CheckLogin,(req,res)=>{
         
     })
 })
+router.put('/profilepic',(req,res)=>{
+    USER.findByIdAndUpdate(req.user._id,{
+        $set:{photo:req.body.profilepic}},{
+            new:true
+        }
+    ).then(result=>res.json(result))
+    .catch(err=>res.status(422).json({error:err}))
+})
 module.exports=router
