@@ -4,6 +4,8 @@ const mongoose=require('mongoose');
 const POSTS=mongoose.model('POSTS');
 const USER=mongoose.model('USER');
 const CheckLogin=require('../middlewares/CheckLogin')
+const cors=require('cors');
+router.use(cors())
 router.get('/users/:userId',CheckLogin,(req,res)=>{
     USER.find({_id:req.params.userId})
     .select("-password")
@@ -19,10 +21,11 @@ router.put('/follow',CheckLogin,(req,res)=>{
     USER.findByIdAndUpdate(req.body.followId,{
         $push:{followers:req.user._id}},{
             new:true
-        },(err,result)=>{
-            if(err){
-                return res.status(422).json({error:err})
-            }
+        }).then(data=>{
+        // (err,result)=>{
+        //     if(err){
+        //         return res.status(422).json({error:err})
+        //     }
             USER.findByIdAndUpdate(req.user._id,{
                 $push:{following:req.body.followId}},{
                     new:true
@@ -36,10 +39,11 @@ router.put('/unfollow',CheckLogin,(req,res)=>{
     USER.findByIdAndUpdate(req.body.followId,{
         $pull:{followers:req.user._id}},{
             new:true
-        },(err,result)=>{
-            if(err){
-                return res.status(422).json({error:err})
-            }
+        }).then(data=>{
+        // (err,result)=>{
+        //     if(err){
+        //         return res.status(422).json({error:err})
+        //     }
             USER.findByIdAndUpdate(req.user._id,{
                 $pull:{following:req.body.followId}},{
                     new:true

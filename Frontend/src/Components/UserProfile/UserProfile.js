@@ -1,17 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import PostDetails from '../PostDetails/PostDetails';
+// import PostDetails from '../PostDetails/PostDetails';
 import Navbar from '../SideNav/Navbar'
 import './UserProfile.css'
 function UserProfile() {
   const[posts,setPosts]=useState([]);
   const[profileName,setprofileName]=useState('');
   const[postCount,setPostCount]=useState();
+  const[userInfo,setuserInfo]=useState("");
+  const[isFollow,setisFollow]=useState(false);
   // const[getPost,setgetPost]=useState([]);
   // const[show,setShow]=useState(false);
   const{userId}=useParams()
 
 console.log('user:',userId)
+const followUser=(userFollowId)=>{
+  fetch("http://localhost:5000/follow",{
+    method:'PUT',
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:'Bearer '+localStorage.getItem('jwt')
+    },
+    body:JSON.stringify({
+      followId:userFollowId
+    })
+  }).then((res)=>res.json())
+  .then((data)=>{console.log(data);
+    setisFollow(true);
+  })
+  .catch(err=>console.log(err))
+}
+const unfollowUser=(userFollowId)=>{
+  fetch("http://localhost:5000/unfollow",{
+    method:'PUT',
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:'Bearer '+localStorage.getItem('jwt')
+    },
+    body:JSON.stringify({
+      followId:userFollowId
+    })
+  }).then((res)=>res.json())
+  .then((data)=>{console.log(data);
+  setisFollow(false);
+  })
+  .catch(err=>console.log(err))
+}
 //   const detailDisp=(getPost)=>{
 //     if(show){
 // setShow(false);
@@ -29,13 +63,17 @@ fetch(`http://localhost:5000/users/${userId}`,{
     'Authorization':'Bearer '+localStorage.getItem('jwt')
   }
 }).then(res=>res.json())
-.then(data=>{console.log("Profile data ",data.result);
+.then(data=>{console.log("Profile data ",data);
 setPosts(data.result);
 setPostCount(data.result.length)
 setprofileName(data.data[0].userName);
+setuserInfo(data.data[0]._id)
+if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id)){
+  setisFollow(true);
+}
 })
 .catch(err=>console.log(err))
-  },[])
+  },[isFollow])
   return (
     <div className='Profile'>
   <Navbar/>
@@ -45,7 +83,14 @@ setprofileName(data.data[0].userName);
    </div>
    <div className="profile_details">
    <div className="profile_name">
-   <h1>{profileName}</h1>
+   <h1>{profileName}{"   "}{!isFollow?<button className='follow_user' onClick={()=>{
+    console.log(userInfo)
+    followUser(userInfo);}}>Follow</button>:
+    <button className='unfollow_user' onClick={()=>{
+      console.log(userInfo)
+      unfollowUser(userInfo);}}>Unfollow</button>
+  }</h1>
+   
    <div className="profile_reach">
    <p>{postCount} Posts</p>
    <p>0 Followers</p>
