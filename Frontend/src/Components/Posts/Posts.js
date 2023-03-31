@@ -13,8 +13,8 @@ const{comment,setComment}=useContext(commentContext);
   return (
     <div className='Post'>
     <div className="post_header">
-    <img src="https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo" alt="" />
-    <p><Link to={`/profiles/${dat.postedBy._id}`}>{dat.postedBy.userName}</Link></p>
+    <img src={dat.postedBy.photo?dat.postedBy.photo:'https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo'} alt="" />
+    <p><Link to={(JSON.parse(localStorage.getItem('users'))._id)===dat.postedBy._id?'/profile':`/profiles/${dat.postedBy._id}`}>{dat.postedBy.userName}</Link></p>
     </div>
   <div className="post_content">
   <img src={dat.photo} alt="" />
