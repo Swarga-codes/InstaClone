@@ -23,24 +23,27 @@ function ProfilePicPopup({edit}) {
           })
           .catch((err) => console.log(err));
       };
+      const postProfileImage=()=>{
+        fetch("http://localhost:5000/profilepic/", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("jwt"),
+          },
+          body: JSON.stringify({
+           profilepic:imgUrl
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {console.log(data);
+            edit();
+          window.location.reload();
+          })
+          .catch((err) => console.log(err));
+      };
       useEffect(()=>{
         if(imgUrl){
-        fetch("http://localhost:5000/profilepic/", {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": "Bearer " + localStorage.getItem("jwt"),
-            },
-            body: JSON.stringify({
-             profilepic:imgUrl
-            }),
-          })
-            .then((res) => res.json())
-            .then((data) => {console.log(data);
-              edit();
-            window.location.reload();
-            })
-            .catch((err) => console.log(err));
+      postProfileImage();
         }
       
     }
@@ -59,7 +62,10 @@ function ProfilePicPopup({edit}) {
     }}>Update Profile Pic</button>
     <input type="file" accept='image/*' className='upload_profilepic' ref={upload} onChange={(e)=>setProfilePic(e.target.files[0])}/>
     <hr />
-    <button className='removeBtn'>Remove Profile Pic</button>
+    <button className='removeBtn' onClick={()=>{
+      setimgUrl(null);
+      postProfileImage();
+    }}>Remove Profile Pic</button>
     <hr />
     <button onClick={()=>edit()}>Cancel</button>
     </div>

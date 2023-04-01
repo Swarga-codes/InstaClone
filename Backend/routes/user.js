@@ -11,7 +11,8 @@ router.get('/users/:userId',CheckLogin,(req,res)=>{
     .select("-password")
     .then(data=>{
         POSTS.find({postedBy:req.params.userId})
-        .populate('postedBy')
+        .populate('postedBy','_id name userName')
+        .populate('comments.postedBy','_id userName')
         .then(result=>res.status(200).json({data,result}))
         .catch(err=>res.status(422).json({error:err}))
     })

@@ -8,7 +8,8 @@
 }
 .profile_image img{
     border-radius: 30rem;
-    width: 12rem;
+    width: 11rem;
+    height: 11rem;
 }
 
 .profile_details{
