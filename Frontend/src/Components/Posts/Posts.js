@@ -37,7 +37,7 @@ likePosts(dat._id);
   </div>
   </div>
   <div className="post_caption">
-  <p>{dat.body}</p>
+  <p><span>{dat.postedBy.userName}</span>{" "}{dat.body}</p>
   </div>
   <div className="view_comments">
   <p onClick={()=>{comms(dat);}}><b>View all {dat.comments?.length} comments</b></p>

@@ -8,6 +8,8 @@
     max-width: 500px;
     height: max-content;
     border-bottom: 1px solid gray;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+
 }
 .post_header{
     display: flex;
@@ -55,6 +57,7 @@
 }
 .post_caption{
     padding: 0.4rem 0.6rem;
+    margin-bottom: 0.5rem;
 }
 .comment_box {
     margin-top: 1rem;
@@ -88,4 +91,7 @@
 .post_header p a{
     text-decoration: none;
     color: #fff;
+}
+.post_caption p span{
+    font-weight: 600;
 }

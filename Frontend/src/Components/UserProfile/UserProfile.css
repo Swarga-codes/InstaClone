@@ -41,9 +41,10 @@
     flex-wrap: wrap;
 }
 .users_posts img{
-    width: 10rem;
-    padding-right: 2.8rem;
+    width: 20rem;
+    padding-right: 0.4rem;
     padding-bottom: 3rem;
+    height: 15rem;
 }
 .follow_user{
     color: #fff;
