@@ -2,13 +2,12 @@
     border: 2px solid #000;
     flex: 0.8;
     color: white;
-    margin: 3rem 24rem;
-    border: 2px solid gray;
-    border-radius: 30px;
+    margin: 1rem 24rem;
+    /* border: 2px solid gray; */
+    /* border-radius: 30px; */
     max-width: 500px;
     height: max-content;
-    
-  
+    border-bottom: 1px solid gray;
 }
 .post_header{
     display: flex;
@@ -16,7 +15,8 @@
     border-radius: 30px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-bottom: 2px solid gray;
+    /* border-bottom: 2px solid gray; */
+    padding-left: 0;
 }
 .post_header p{
     display: flex;
@@ -27,6 +27,7 @@
 .post_header img{
     border-radius: 60px;
     width: 2.3rem;
+    height: 2.3rem;
 }
 .post_content{
     text-align: center;
@@ -34,6 +35,7 @@
 .post_content img{
   width: 100%;
   object-fit: contain;
+  border-radius: 10px;
 }
 .post_like{
     cursor: pointer;
@@ -55,12 +57,12 @@
     padding: 0.4rem 0.6rem;
 }
 .comment_box {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border: 2px solid gray;
-    border-radius: 30px;
-    padding: 0.5rem 0.5rem;
-    background: #201b1b;
+    margin-top: 1rem;
+    /* margin-bottom: 2rem; */
+    /* border: 2px solid gray; */
+    /* border-radius: 30px; */
+    /* padding: 0.5rem 0.5rem; */
+    /* background: #201b1b; */
     display: flex;
 }
 .comment_box input {
@@ -68,11 +70,12 @@
     color: #fff;
     padding: 0.7rem 0.5rem;
     width: 100%;
-    background: #201b1b;
+    background: black;
     border: none;
+    font-size: 14px;
 }
 .comment_box button {
-    background: #201b1b;
+    background: black;
     color: #fff;
     cursor: pointer;
     background: transparent;

@@ -40,11 +40,11 @@ likePosts(dat._id);
   <p>{dat.body}</p>
   </div>
   <div className="view_comments">
-  <p onClick={()=>{comms(dat);}}><b>View all comments</b></p>
+  <p onClick={()=>{comms(dat);}}><b>View all {dat.comments?.length} comments</b></p>
   </div>
   <div className="comment_box">
   <input type="text" name='comment' id='name' placeholder='Enter a comment...' onChange={(e)=>setComment(e.target.value)}/>
-  <button onClick={()=>createComment(comment,id)}><SendIcon sx={{backgroundColor:'#201b1b'}}/></button>
+  <button onClick={()=>createComment(comment,id)}><SendIcon sx={{backgroundColor:'#000'}}/></button>
   </div>
   </div>
     </div>
