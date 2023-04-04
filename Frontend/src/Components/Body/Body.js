@@ -5,6 +5,13 @@ import Navbar from '../SideNav/Navbar'
 import './Body.css'
 import CloseIcon from '@mui/icons-material/Close';
 import { commentContext } from '../../context/comments';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Logo from '../../assets/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
 function Body() {
   const[data,setData]=useState([]);
   const[showComment,setShowComment]=useState(false);
@@ -116,12 +123,28 @@ const UnlikePosts = (id)=>{
     <div className='Body'>
     <Navbar/>
     <div className="all_posts">
-{data.map(d=>(
-  <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
- 
-))
-
-}
+    <div className="responsive_navheader">
+    <img src={Logo} alt="" />
+    <div className="res_logout">
+    <LogoutIcon sx={{color: 'white'}}/>
+    </div>
+   
+    </div>
+    <div className="posts_display">
+    {data.map(d=>(
+      <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
+     
+    ))
+    
+    }
+    </div>
+<div className="responsive_navfooter">
+<HomeIcon/>
+<ExploreIcon/>
+<AddBoxIcon/>
+<SearchIcon/>
+<PersonIcon/>
+</div>
 <div className={showComment?"comment_details":"comment_details_hidden"}>
 <div className="comment_container">
 <div className="comment_pic">

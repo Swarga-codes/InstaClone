@@ -95,3 +95,9 @@
 .post_caption p span{
     font-weight: 600;
 }
+/*Responsive*/
+@media (max-width:991px){
+    .Post{
+        margin: 2rem 1rem;
+    }
+}

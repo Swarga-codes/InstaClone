@@ -78,3 +78,41 @@ height: 50vh;
 .comment_details_hidden{
     display: none;
 }
+.responsive_navheader,.responsive_navfooter{
+    display: none;
+}
+@media (max-width:991px) {
+    .responsive_navheader{
+        display: initial;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid gray;
+        position: fixed;
+        padding-top: 0.5rem;
+    }
+    .responsive_navfooter{
+        display: initial;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 0;
+        border-top: 1px solid gray;
+       color: white;
+       position: fixed;
+       width: 100%;
+       left: 0;
+       bottom: 0;
+    }
+    .responsive_navfooter svg{
+        padding: 1rem 1.5rem;
+    }
+    .res_logout{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+    .posts_display{
+        margin-top: 4.5rem;
+    }
+}
