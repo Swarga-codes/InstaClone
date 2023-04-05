@@ -44,3 +44,31 @@
     color: #fff;
     border: none;
 }
+@media (max-width:991px){
+    .createPostsCard{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .add_captions{
+        border: none;
+    }
+    .add_captions textarea{
+        border: 2px solid gray;
+        width: 18rem;
+    }
+    .createPostsHeader h1{
+        font-size: 16px;
+    }
+    .create{
+        text-align: initial;
+    }
+    .create img{
+        width: initial;
+    }
+}

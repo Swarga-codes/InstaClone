@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../SideNav/Navbar";
 import "./CreatePosts.css";
+import Logo from '../../assets/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 function CreatePosts() {
   const [captions, setCaptions] = useState("");
   const [image, setImage] = useState("");
@@ -51,6 +58,13 @@ function CreatePosts() {
   return (
     <div className="createPosts">
       <Navbar />
+      <div className="responsive_navheader">
+      <img src={Logo} alt="" />
+      <div className="res_logout">
+      <LogoutIcon sx={{color: 'white'}}/>
+      </div>
+     
+      </div>
       <div className="createPostsCard">
         <div className="createPostsHeader">
           <h1>Create a new post</h1>
@@ -85,6 +99,13 @@ function CreatePosts() {
           ></textarea>
         </div>
       </div>
+      <div className="responsive_navfooter">
+<HomeIcon/>
+<ExploreIcon/>
+<AddBoxIcon/>
+<SearchIcon/>
+<PersonIcon/>
+</div>
     </div>
   );
 }
