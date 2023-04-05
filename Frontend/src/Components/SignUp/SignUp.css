@@ -46,3 +46,25 @@
     text-decoration: none;
     font-weight: bold;
 }
+@media(max-width:991px){
+    .signup{
+        padding: 3rem 3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin: 0;
+    }
+    .signup_logo img{
+        width: 60%;
+    }
+    .existinguser{
+        font-size: 14px;
+    }
+    .SignUpBtn{
+        width: 14rem;
+    }
+    .signup_fields input{
+        width: 13rem;
+    }
+}

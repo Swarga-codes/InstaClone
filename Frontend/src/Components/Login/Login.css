@@ -63,3 +63,33 @@
     background: red;
     float: right;
 }
+
+@media(max-width:991px){
+    .login {
+        border: 2px solid gray;
+        width: fit-content;
+        text-align: center;
+        padding: 3rem 3rem;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        /* margin-top: 6rem; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-x: hidden;
+    }
+    .login_fields input{
+        width: 13rem;
+    }
+    .login_logo img {
+        width: 60%;
+    }
+    .LoginBtn{
+        width: 14rem;
+    }
+    .noaccount{
+        font-size: 14px;
+    }
+}
