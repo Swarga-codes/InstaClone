@@ -3,6 +3,13 @@ import { useParams } from 'react-router-dom';
 // import PostDetails from '../PostDetails/PostDetails';
 import Navbar from '../SideNav/Navbar'
 import './UserProfile.css'
+import LogoutIcon from '@mui/icons-material/Logout';
+import Logo from '../../assets/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
 function UserProfile() {
   const[posts,setPosts]=useState([]);
   const[profileName,setprofileName]=useState('');
@@ -81,6 +88,13 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
   return (
     <div className='Profile'>
   <Navbar/>
+  <div className="responsive_navheader">
+  <img src={Logo} alt="" />
+  <div className="res_logout">
+  <LogoutIcon sx={{color: 'white'}}/>
+  </div>
+ 
+  </div>
    <div className="profile_header">
    <div className="profile_image">
    <img src='https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo' alt="" />
@@ -116,7 +130,13 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
     show &&
     <PostDetails items={getPost} detailDisp={detailDisp}/>
    } */}
-   
+   <div className="responsive_navfooter">
+<HomeIcon/>
+<ExploreIcon/>
+<AddBoxIcon/>
+<SearchIcon/>
+<PersonIcon/>
+</div>
     </div>
   )
 }

@@ -3,6 +3,13 @@ import PostDetails from '../PostDetails/PostDetails';
 import ProfilePicPopup from '../ProfilePicPopup/ProfilePicPopup';
 import Navbar from '../SideNav/Navbar'
 import './Profile.css'
+import LogoutIcon from '@mui/icons-material/Logout';
+import Logo from '../../assets/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
 function Profile() {
   const[posts,setPosts]=useState([]);
   const[profile,setprofile]=useState('');
@@ -43,6 +50,13 @@ setprofile(data.data[0]);
   return (
     <div className='Profile'>
   <Navbar/>
+  <div className="responsive_navheader">
+  <img src={Logo} alt="" />
+  <div className="res_logout">
+  <LogoutIcon sx={{color: 'white'}}/>
+  </div>
+ 
+  </div>
    <div className="profile_header">
    <div className="profile_image">
    <img src={profile.photo?profile.photo:'https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo'} alt="" onClick={editProfilePic}/>
@@ -75,6 +89,13 @@ setprofile(data.data[0]);
     changeProfilePic &&
     <ProfilePicPopup edit={editProfilePic}/>
    }
+   <div className="responsive_navfooter">
+   <HomeIcon/>
+   <ExploreIcon/>
+   <AddBoxIcon/>
+   <SearchIcon/>
+   <PersonIcon/>
+   </div>
     </div>
   )
 }

@@ -36,3 +36,9 @@ width: 20%;
 .upload_profilepic{
     display: none;
 }
+@media(max-width:991px){
+    .profilepic_container{
+        left: 33%;
+        width: 70%;
+    }
+}
