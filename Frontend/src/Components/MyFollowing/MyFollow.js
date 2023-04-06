@@ -135,12 +135,16 @@ const UnlikePosts = (id)=>{
    
     </div>
     <div className="all_posts">
-{data.map(d=>(
-  <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
- 
-))
+    <div className="posts_display">
+    {data.map(d=>(
+      <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
+     
+    ))
+    
+    }
+    </div>
 
-}
+<br /><br /><br />
 <div className="responsive_navfooter">
 <Link to='/'><HomeIcon/></Link>
 <Link to='/myfollowing'><ExploreIcon/></Link>
