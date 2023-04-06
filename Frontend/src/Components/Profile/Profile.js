@@ -10,7 +10,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link, useNavigate } from 'react-router-dom';
 function Profile() {
+  const navigator=useNavigate();
   const[posts,setPosts]=useState([]);
   const[profile,setprofile]=useState('');
   const[getPost,setgetPost]=useState([]);
@@ -51,8 +53,11 @@ setprofile(data.data[0]);
     <div className='Profile'>
   <Navbar/>
   <div className="responsive_navheader">
-  <img src={Logo} alt="" />
-  <div className="res_logout">
+  <Link to='/'><img src={Logo} alt="" /></Link>
+  <div className="res_logout" onClick={()=>{
+    localStorage.clear();
+    navigator('/login');
+  }}>
   <LogoutIcon sx={{color: 'white'}}/>
   </div>
  
@@ -90,11 +95,11 @@ setprofile(data.data[0]);
     <ProfilePicPopup edit={editProfilePic}/>
    }
    <div className="responsive_navfooter">
-   <HomeIcon/>
-   <ExploreIcon/>
-   <AddBoxIcon/>
+   <Link to='/'><HomeIcon/></Link>
+   <Link to='/myfollowing'><ExploreIcon/></Link>
+   <Link to='/createposts'><AddBoxIcon/></Link>
    <SearchIcon/>
-   <PersonIcon/>
+   <Link to='/profile'><PersonIcon/></Link>
    </div>
     </div>
   )

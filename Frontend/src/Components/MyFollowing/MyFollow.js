@@ -5,7 +5,16 @@ import Navbar from '../SideNav/Navbar'
 import './MyFollow.css'
 import CloseIcon from '@mui/icons-material/Close';
 import { commentContext } from '../../context/comments';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Logo from '../../assets/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
+import { Link, useNavigate } from 'react-router-dom';
 function MyFollow() {
+  const navigator=useNavigate();
   const[data,setData]=useState([]);
   const[showComment,setShowComment]=useState(false);
   const{comment,setComment}=useContext(commentContext);
@@ -115,6 +124,16 @@ const UnlikePosts = (id)=>{
   return (
     <div className='Body'>
     <Navbar/>
+    <div className="responsive_navheader">
+    <Link to='/'><img src={Logo} alt="" /></Link>
+    <div className="res_logout" onClick={()=>{
+      localStorage.clear();
+      navigator('/login');
+    }}>
+    <LogoutIcon sx={{color: 'white'}}/>
+    </div>
+   
+    </div>
     <div className="all_posts">
 {data.map(d=>(
   <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
@@ -122,6 +141,13 @@ const UnlikePosts = (id)=>{
 ))
 
 }
+<div className="responsive_navfooter">
+<Link to='/'><HomeIcon/></Link>
+<Link to='/myfollowing'><ExploreIcon/></Link>
+<Link to='/createposts'><AddBoxIcon/></Link>
+<SearchIcon/>
+<Link to='/profile'><PersonIcon/></Link>
+</div>
 <div className={showComment?"comment_details":"comment_details_hidden"}>
 <div className="comment_container">
 <div className="comment_pic">

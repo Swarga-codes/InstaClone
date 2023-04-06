@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // import PostDetails from '../PostDetails/PostDetails';
 import Navbar from '../SideNav/Navbar'
 import './UserProfile.css'
@@ -10,7 +10,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link } from 'react-router-dom';
 function UserProfile() {
+  const navigator=useNavigate();
   const[posts,setPosts]=useState([]);
   const[profileName,setprofileName]=useState('');
   const[postCount,setPostCount]=useState();
@@ -89,8 +91,11 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
     <div className='Profile'>
   <Navbar/>
   <div className="responsive_navheader">
-  <img src={Logo} alt="" />
-  <div className="res_logout">
+  <Link to='/'><img src={Logo} alt="" /></Link>
+  <div className="res_logout" onClick={()=>{
+    localStorage.clear();
+    navigator('/login');
+  }}>
   <LogoutIcon sx={{color: 'white'}}/>
   </div>
  
@@ -131,12 +136,12 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
     <PostDetails items={getPost} detailDisp={detailDisp}/>
    } */}
    <div className="responsive_navfooter">
-<HomeIcon/>
-<ExploreIcon/>
-<AddBoxIcon/>
-<SearchIcon/>
-<PersonIcon/>
-</div>
+   <Link to='/'><HomeIcon/></Link>
+   <Link to='/myfollowing'><ExploreIcon/></Link>
+   <Link to='/createposts'><AddBoxIcon/></Link>
+   <SearchIcon/>
+   <Link to='/profile'><PersonIcon/></Link>
+   </div>
     </div>
   )
 }

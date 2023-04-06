@@ -8,7 +8,9 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link, useNavigate } from "react-router-dom";
 function CreatePosts() {
+  const navigator=useNavigate();
   const [captions, setCaptions] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
@@ -59,12 +61,15 @@ function CreatePosts() {
     <div className="createPosts">
       <Navbar />
       <div className="responsive_navheader">
-      <img src={Logo} alt="" />
-      <div className="res_logout">
-      <LogoutIcon sx={{color: 'white'}}/>
-      </div>
-     
-      </div>
+    <Link to='/'><img src={Logo} alt="" /></Link>
+    <div className="res_logout" onClick={()=>{
+      localStorage.clear();
+      navigator('/login');
+    }}>
+    <LogoutIcon sx={{color: 'white'}}/>
+    </div>
+   
+    </div>
       <div className="createPostsCard">
         <div className="createPostsHeader">
           <h1>Create a new post</h1>
@@ -100,12 +105,12 @@ function CreatePosts() {
         </div>
       </div>
       <div className="responsive_navfooter">
-<HomeIcon/>
-<ExploreIcon/>
-<AddBoxIcon/>
-<SearchIcon/>
-<PersonIcon/>
-</div>
+      <Link to='/'><HomeIcon/></Link>
+      <Link to='/myfollowing'><ExploreIcon/></Link>
+      <Link to='/createposts'><AddBoxIcon/></Link>
+      <SearchIcon/>
+      <Link to='/profile'><PersonIcon/></Link>
+      </div>
     </div>
   );
 }
