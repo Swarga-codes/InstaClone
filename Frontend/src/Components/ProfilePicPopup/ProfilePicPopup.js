@@ -23,7 +23,7 @@ function ProfilePicPopup({edit}) {
           })
           .catch((err) => console.log(err));
       };
-      const postProfileImage=()=>{
+      const postProfileImage=(imgUrl)=>{
         fetch("http://localhost:5000/profilepic/", {
           method: "PUT",
           headers: {
@@ -41,19 +41,21 @@ function ProfilePicPopup({edit}) {
           })
           .catch((err) => console.log(err));
       };
-      useEffect(()=>{
-        if(imgUrl){
-      postProfileImage();
-        }
-      
-    }
-      ,[imgUrl])
-    
+
       useEffect(()=>{
         if(profilePic){
         getPostDetails();
         }
       },[profilePic])
+      useEffect(()=>{
+        if(imgUrl){
+      postProfileImage(imgUrl);
+        }
+      
+    }
+      ,[imgUrl])
+    
+   
 
   return (
     <div className='ProfilePicUpdate'>
@@ -63,8 +65,7 @@ function ProfilePicPopup({edit}) {
     <input type="file" accept='image/*' className='upload_profilepic' ref={upload} onChange={(e)=>setProfilePic(e.target.files[0])}/>
     <hr />
     <button className='removeBtn' onClick={()=>{
-      setimgUrl(null);
-      postProfileImage();
+      postProfileImage(null);
     }}>Remove Profile Pic</button>
     <hr />
     <button onClick={()=>edit()}>Cancel</button>

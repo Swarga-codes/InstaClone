@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Body from './Components/Body/Body';
 import { useEffect, useState } from 'react';
@@ -10,6 +11,7 @@ import CreatePosts from './Components/CreatePosts/CreatePosts';
 import {commentContext} from './context/comments'
 import UserProfile from './Components/UserProfile/UserProfile';
 import MyFollow from './Components/MyFollowing/MyFollow';
+
 
 
 function App() {

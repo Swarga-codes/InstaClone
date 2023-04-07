@@ -135,6 +135,7 @@ const UnlikePosts = (id)=>{
    
     </div>
     <div className="all_posts">
+    
     <div className="posts_display">
     {data.map(d=>(
       <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
@@ -173,7 +174,7 @@ const UnlikePosts = (id)=>{
 <div className="likes_caption">
 <p>{items?.likes?.length} likes</p>
 <br />
-<p>{items.body}</p>
+<p><b>{items?.postedBy?.userName}</b>{" "}{items.body}</p>
 </div>
 
 <div className="add_comment">

@@ -85,7 +85,7 @@ router.delete('/delposts/:postId',CheckLogin,(req,res)=>{
     POSTS.find({postedBy:{$in:req.user.following}})
     .sort({_id:-1})
     .populate('postedBy','_id name userName')
-    .populate('comments.postedBy','_id name')
+    .populate('comments.postedBy','_id name userName')
     .then(results=>res.json(results))
     .catch(err=>res.staus(422).json({error:err}))
  })
