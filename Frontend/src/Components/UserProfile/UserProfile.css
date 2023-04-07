@@ -84,14 +84,16 @@
     padding-top: 5rem;
 }
 .profile_reach{
-    width: max-content;
+    /* width: max-content; */
     margin-top: 2rem;
+    text-align: center;
 }
 .profile_reach p{
     font-size: 13px;
     padding-right: 0;
     margin-left: -1rem;
     margin-right: 1.5rem;
+    font-weight: 600;
 }
 .users_posts{
     padding: 1rem 0rem;

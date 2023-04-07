@@ -78,3 +78,46 @@ height: 50vh;
 .comment_details_hidden{
     display: none;
 }
+@media(max-width:991px){
+    .comment_details{
+        margin-left: 0;
+        top: 12%;
+        left: 0%;
+        padding: 0.5rem 0.5rem;
+        
+      
+    }
+    .comment_display{
+        display: flex;
+        flex-direction: column-reverse;
+        border: 1px solid gray;
+        width: fit-content;
+        border-radius: 20px;
+    }
+    .likes_caption p:nth-child(1),.likes_caption br{
+        display: none;
+    }
+    .add_comment{
+        width: fit-content;
+        border: none;
+        margin-top: 1.5rem;
+    }
+    .add_comment input{
+        width: 16rem;
+    }
+    .user_header{
+        display: none;
+    }
+    .comment_pic{
+        display: none;
+    }
+    .comment_section{
+        width: 21.5rem;
+        border: none;
+        margin: 1rem 0rem;
+        border-top: 1px solid gray;
+    }
+    .close_comment{
+        right: 3%;
+    }
+}

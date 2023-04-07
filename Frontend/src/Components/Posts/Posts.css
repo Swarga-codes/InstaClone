@@ -42,12 +42,15 @@
 .post_like{
     cursor: pointer;
 }
+.post_like svg{
+    padding-right: 0.5rem;
+}
 .post_like p{
     margin-top: 0.3rem;
 }
 .post_footer{
     padding: 0.6rem 0.5rem;
-   border-radius: 30px;
+   /* border-radius: 30px; */
 }
 .post_actions{
     display: flex;
