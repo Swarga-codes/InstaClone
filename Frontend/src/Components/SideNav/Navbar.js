@@ -4,8 +4,6 @@ import Logo from '../../assets/logo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import SideRoutes from "./SideRoutes";
 import SearchIcon from '@mui/icons-material/Search';
-import ExploreIcon from '@mui/icons-material/Explore';
-import MovieIcon from '@mui/icons-material/Movie';
 import SendIcon from '@mui/icons-material/Send';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
@@ -23,14 +21,13 @@ function Navbar() {
   return (
     <div className="SideNav">
       <div className="app_logo">
-      <img src={Logo} alt="" />
+      <Link to='/'><img src={Logo} alt="" /></Link>
       </div>
       <div className="nav_routes">
      <Link to='/'><SideRoutes Icon={HomeIcon} name="Home"/></Link>
      <SideRoutes Icon={SearchIcon} name="Search"/>
   {/*<Link to='/myfollowing'><SideRoutes Icon={ExploreIcon} name="Explore"/></Link>*/}
      <Link to='/myfollowing'><SideRoutes Icon={SwitchAccountOutlinedIcon} name="My Following"/></Link>
-     <SideRoutes Icon={MovieIcon} name="Reels"/>
      <SideRoutes Icon={SendIcon} name="Messages"/>
      <Link to='/createposts'><SideRoutes Icon={AddBoxIcon} name="Create"/></Link>
      <Link to='/profile'><SideRoutes Icon={PersonIcon} name="Profile"/></Link>

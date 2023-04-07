@@ -12,7 +12,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
+import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 import { Link, useNavigate } from 'react-router-dom';
+import DefaultProfilePic from '../../assets/userdefault.png'
 function Body() {
   const navigator=useNavigate();
   const[data,setData]=useState([]);
@@ -147,7 +149,7 @@ const UnlikePosts = (id)=>{
     </div>
 <div className="responsive_navfooter">
 <Link to='/'><HomeIcon/></Link>
-<Link to='/myfollowing'><ExploreIcon/></Link>
+<Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
 <Link to='/createposts'><AddBoxIcon/></Link>
 <SearchIcon/>
 <Link to='/profile'><PersonIcon/></Link>
@@ -159,7 +161,7 @@ const UnlikePosts = (id)=>{
 </div>
 <div className="comment_display">
 <div className="user_header">
-<img src="https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo" alt="" />
+<img src={items.postedBy?.photo?items.postedBy?.photo:DefaultProfilePic} alt="" />
 <p><b>{items.postedBy?.userName}</b></p>
 </div>
 <div className="comment_section">

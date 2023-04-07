@@ -5,6 +5,7 @@
     left: 10%;
     color: white;
     background-color: rgba(16, 13,13,0.4);
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
 }
 .comment_pic img{
 width: 30rem;

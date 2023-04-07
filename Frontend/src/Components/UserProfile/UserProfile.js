@@ -11,6 +11,7 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
+import DefaultProfilePic from '../../assets/userdefault.png'
 function UserProfile() {
   const navigator=useNavigate();
   const[posts,setPosts]=useState([]);
@@ -20,6 +21,7 @@ function UserProfile() {
   const[isFollow,setisFollow]=useState(false);
   const[followers,setfollowers]=useState(0);
   const[following,setfollowing]=useState(0);
+  const[profilePic,setProfilePic]=useState("");
   // const[getPost,setgetPost]=useState([]);
   // const[show,setShow]=useState(false);
   const{userId}=useParams()
@@ -80,6 +82,7 @@ setfollowers(data.data[0].followers.length);
 setfollowing(data.data[0].following.length);
 setPostCount(data.result.length)
 setprofileName(data.data[0].userName);
+setProfilePic(data.data[0].photo);
 setuserInfo(data.data[0]._id)
 if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id)){
   setisFollow(true);
@@ -102,7 +105,7 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
   </div>
    <div className="profile_header">
    <div className="profile_image">
-   <img src='https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo' alt="" />
+   <img src={profilePic?profilePic:DefaultProfilePic} alt="" />
    </div>
    <div className="profile_details">
    <div className="profile_name">

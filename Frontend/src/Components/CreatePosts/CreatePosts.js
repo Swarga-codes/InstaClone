@@ -4,11 +4,12 @@ import "./CreatePosts.css";
 import Logo from '../../assets/logo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import ExploreIcon from '@mui/icons-material/Explore';
+// import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate } from "react-router-dom";
+import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 function CreatePosts() {
   const navigator=useNavigate();
   const [captions, setCaptions] = useState("");
@@ -108,7 +109,7 @@ function CreatePosts() {
       </div>
       <div className="responsive_navfooter">
       <Link to='/'><HomeIcon/></Link>
-      <Link to='/myfollowing'><ExploreIcon/></Link>
+      <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
       <Link to='/createposts'><AddBoxIcon/></Link>
       <SearchIcon/>
       <Link to='/profile'><PersonIcon/></Link>

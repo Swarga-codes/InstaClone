@@ -7,10 +7,12 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Logo from '../../assets/logo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import ExploreIcon from '@mui/icons-material/Explore';
+// import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
+import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 import { Link, useNavigate } from 'react-router-dom';
+import DefaultProfilePic from '../../assets/userdefault.png'
 function Profile() {
   const navigator=useNavigate();
   const[posts,setPosts]=useState([]);
@@ -64,7 +66,7 @@ setprofile(data.data[0]);
   </div>
    <div className="profile_header">
    <div className="profile_image">
-   <img src={profile.photo?profile.photo:'https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo'} alt="" onClick={editProfilePic}/>
+   <img src={profile.photo?profile.photo:DefaultProfilePic} alt="" onClick={editProfilePic}/>
    </div>
    <div className="profile_details">
    <div className="profile_name">
@@ -96,7 +98,7 @@ setprofile(data.data[0]);
    }
    <div className="responsive_navfooter">
    <Link to='/'><HomeIcon/></Link>
-   <Link to='/myfollowing'><ExploreIcon/></Link>
+   <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
    <Link to='/createposts'><AddBoxIcon/></Link>
    <SearchIcon/>
    <Link to='/profile'><PersonIcon/></Link>

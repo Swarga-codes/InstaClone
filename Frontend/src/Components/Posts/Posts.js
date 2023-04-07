@@ -6,6 +6,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SendIcon from "@mui/icons-material/Send";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { commentContext } from "../../context/comments";
+import DefaultProfilePic from '../../assets/userdefault.png'
 import { Link } from "react-router-dom";
 function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
   const { comment, setComment } = useContext(commentContext);
@@ -17,7 +18,7 @@ function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
           src={
             dat.postedBy.photo
               ? dat.postedBy.photo
-              : "https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo"
+              : DefaultProfilePic
           }
           alt=""
         />
@@ -93,7 +94,7 @@ function Posts({ dat, id, likePosts, UnlikePosts, comms, createComment }) {
               comms(dat);
             }}
           >
-            <b>View all {dat.comments?.length} comments</b>
+            <b>{dat.comments?.length?`View all ${dat.comments?.length} comments`:""}</b>
           </p>
         </div>
         <div className="comment_box">
