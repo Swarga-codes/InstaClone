@@ -158,8 +158,8 @@ const UnlikePosts = (id)=>{
 </div>
 <div className="comment_display">
 <div className="user_header">
-<img src='https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo' alt="" />
-<p>{items.postedBy?.userName}</p>
+<img src="https://yt3.ggpht.com/yti/AHXOFjVHVX_kjSaYusVMA1nrtddJ5R2nvBe7wIidMJ8n=s88-c-k-c0x00ffffff-no-rj-mo" alt="" />
+<p><b>{items.postedBy?.userName}</b></p>
 </div>
 <div className="comment_section">
 {items?.comments?.map((com)=>{
@@ -172,7 +172,7 @@ const UnlikePosts = (id)=>{
 <div className="likes_caption">
 <p>{items?.likes?.length} likes</p>
 <br />
-<p>{items.body}</p>
+<p><b>{items.postedBy?.userName}</b>{" "}{items.body}</p>
 </div>
 
 <div className="add_comment">

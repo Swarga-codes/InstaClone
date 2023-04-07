@@ -1,6 +1,7 @@
 .Body{
     display: flex;
     height: 100vh;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
 }
 .comment_details{
     margin-left: 4rem;
@@ -16,6 +17,7 @@ margin-top: 2.5rem;
 }
 .comment_container{
     display: flex;
+    height: 37rem;
 }
 .comment_display{
     width: 35rem;
@@ -23,7 +25,7 @@ margin-top: 2.5rem;
 .user_header{
     display: flex;
     padding: 0.6rem 0.8rem;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
 }
 .user_header img{
     width: 3rem;
@@ -36,19 +38,20 @@ border-radius: 5rem;
     align-items: center;
 }
 .comment_section{
-    border:2px solid gray;
+    /* border:2px solid gray; */
 overflow-y: auto;
 height: 50vh;
+border-bottom: 1px solid gray;
 }
 .comment_section p{
     padding: 1rem 1rem;
 }
 .add_comment {
     margin: 0.5em 1rem;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 30px;
     padding: 0.5rem 0.5rem;
-    background: #201b1b;
+    /* background: #201b1b; */
     display: flex;
 }
 .add_comment input {
@@ -56,7 +59,7 @@ height: 50vh;
     color: #fff;
     padding: 0.7rem 0.5rem;
     width: 100%;
-    background: #201b1b;
+    /* background: #201b1b; */
     border: none;
 }
 .add_comment button {
@@ -102,6 +105,7 @@ height: 50vh;
        width: 100%;
        left: 0;
        bottom: 0;
+       justify-content: center;
     }
     .responsive_navfooter a{
         text-decoration: none;
@@ -118,5 +122,12 @@ height: 50vh;
     }
     .posts_display{
         margin-top: 4.5rem;
+    }
+    .add_comment{
+        background-color: #201b1b;
+    }
+    .add_comment input{
+        background: #201b1b;
+
     }
 }
