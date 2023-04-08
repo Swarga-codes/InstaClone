@@ -72,6 +72,13 @@ function PostDetails({ items, detailDisp }) {
             >
               <SendIcon sx={{ backgroundColor: "#201b1b" }} />
             </button>
+          
+          </div>
+          <div className="responsive_delete" onClick={()=>{
+            DeletePost(items._id);
+            navigate('/');
+          }}>
+          <DeleteIcon/>
           </div>
         </div>
       </div>
