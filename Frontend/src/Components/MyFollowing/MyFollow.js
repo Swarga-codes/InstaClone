@@ -15,6 +15,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 import { Link, useNavigate } from 'react-router-dom';
 import DefaultProfilePic from '../../assets/userdefault.png'
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 function MyFollow() {
   const navigator=useNavigate();
   const[data,setData]=useState([]);
@@ -137,7 +138,16 @@ const UnlikePosts = (id)=>{
    
     </div>
     <div className="all_posts">
-    
+    {!data.length?
+    <div className="no_follows">
+    <ErrorOutlineIcon/>
+    <h2>It's quite here! Seems like you haven't followed anyone</h2>
+    <br />
+    <p>Go to home page and follow peeps that match your interests...</p>
+    <br />
+    <Link to='/'><p className='explore_home_page'>Explore the Home Page</p></Link>
+    </div>
+    :
     <div className="posts_display">
     {data.map(d=>(
       <Posts dat={d} id={d._id} likePosts={likePosts} UnlikePosts={UnlikePosts} comms={clickComment} createComment={createComment}/>
@@ -146,6 +156,7 @@ const UnlikePosts = (id)=>{
     
     }
     </div>
+  }
 
 <br /><br /><br />
 <div className="responsive_navfooter">

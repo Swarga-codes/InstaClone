@@ -82,6 +82,26 @@ height: 50vh;
 .comment_details_hidden{
     display: none;
 }
+.no_follows{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.no_follows svg{
+    width: 5rem;
+    height: 5rem;
+}
+.no_follows a{
+    text-decoration: none;
+}
+.explore_home_page{
+    cursor: pointer;
+   color: rgb(0, 149, 246);
+   font-weight: 600;
+}
 @media(max-width:991px){
     .comment_details{
         margin-left: 0;
@@ -123,5 +143,8 @@ height: 50vh;
     }
     .close_comment{
         right: 3%;
+    }
+    .no_follows{
+        width: 100%;
     }
 }
