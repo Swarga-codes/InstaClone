@@ -66,8 +66,10 @@ function CreatePosts() {
       <div className="responsive_navheader">
     <Link to='/'><img src={Logo} alt="" /></Link>
     <div className="res_logout" onClick={()=>{
-      localStorage.clear();
-      navigator('/login');
+      if(window.confirm('Do you wish to logout?')){
+        localStorage.clear();
+        navigator('/login');
+        }
     }}>
     <LogoutIcon sx={{color: 'white'}}/>
     </div>

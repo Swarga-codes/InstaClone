@@ -9,7 +9,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Logo from '../../assets/logo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import ExploreIcon from '@mui/icons-material/Explore';
+// import ExploreIcon from '@mui/icons-material/Explore';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
@@ -131,8 +131,10 @@ const UnlikePosts = (id)=>{
     <div className="responsive_navheader">
     <Link to='/'><img src={Logo} alt="" /></Link>
     <div className="res_logout" onClick={()=>{
+      if(window.confirm('Do you wish to logout?')){
       localStorage.clear();
       navigator('/login');
+      }
     }}>
     <LogoutIcon sx={{color: 'white'}}/>
     </div>

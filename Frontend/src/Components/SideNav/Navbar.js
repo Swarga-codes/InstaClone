@@ -13,10 +13,10 @@ import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined
 function Navbar() {
   const navigate=useNavigate();
   const Logout=()=>{
-    
+    if(window.confirm('Do you wish to logout?')){
     localStorage.clear();
     navigate('/login');
-  
+    }
   }
   return (
     <div className="SideNav">
