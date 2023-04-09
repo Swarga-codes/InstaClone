@@ -60,13 +60,13 @@
     }
     .add_captions textarea{
         border: 2px solid gray;
-        width: 18rem;
+        width: 90%;
     }
     .createPostsHeader h1{
         font-size: 16px;
     }
     .create{
-        text-align: initial;
+        /* text-align: initial; */
     }
     .create img{
         width: initial;

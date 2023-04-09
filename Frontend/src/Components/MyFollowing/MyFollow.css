@@ -138,11 +138,12 @@ height: 50vh;
     .comment_section{
         width: 21.5rem;
         border: none;
-        margin: 1rem 0rem;
-        border-top: 1px solid gray;
+        margin: 1rem 1rem;
+        /* border-top: 1px solid gray; */
     }
     .close_comment{
-        right: 3%;
+        right: 2%;
+        top:2%;
     }
     .no_follows{
         width: 100%;

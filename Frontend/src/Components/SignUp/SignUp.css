@@ -12,7 +12,7 @@
     width: 80%;
 }
 .signup_fields{
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 .signup_fields input{
     padding: 0.5rem 0.5rem;
@@ -45,6 +45,14 @@
     color: rgb(0, 149, 246);
     text-decoration: none;
     font-weight: bold;
+}
+.signup_status{
+    color: red;
+    text-align: center;
+    display: flex;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;    
+    font-size: 14px;
+    align-items: center;
 }
 @media(max-width:991px){
     .signup{

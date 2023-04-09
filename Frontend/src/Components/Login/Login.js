@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+
 function Login() {
   const navigate=useNavigate();
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
+  const[message,setMessage]=useState('');
   const LoginUser = () =>{
     fetch('http://localhost:5000/signin',{
       method:'POST',
@@ -21,7 +24,7 @@ function Login() {
       if(data.error){
      console.log('User unauthenticated..')
     
-   
+   setMessage(data.error);
       }
       else{
         console.log('user authenticated successfully!')
@@ -37,6 +40,11 @@ function Login() {
     <div className='login'>
     <div className="login_logo">
     <img src={Logo} alt="" />
+    {message?
+      <p className='signup_status'><ErrorOutlineIcon/>&nbsp;{" "}{message}</p>
+      :
+      <p></p>
+    }
     </div>
 
    

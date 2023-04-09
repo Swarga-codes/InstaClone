@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import './SignUp.css'
 import Logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom'
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { Link, useNavigate } from 'react-router-dom'
 function SignUp() {
   const[email,setEmail]=useState('');
   const[name,setName]=useState('');
   const[userName,setUserName]=useState('');
   const[password,setPassword]=useState('');
+  const[message,setMessage]=useState('');
+  const navigator=useNavigate();
+
  const registerUser = () =>{
  fetch('http://localhost:5000/signup',{
   method:'POST',headers:{
@@ -18,14 +22,27 @@ function SignUp() {
     userName:userName,
     password:password
   })
- }).then(res=>res.json)
- .then(data=>console.log(data))
+ }).then(res=>res.json())
+ .then(data=>{console.log(data);
+  if(!data.error){
+    navigator('/login');
+  }
+else{
+  setMessage(data.error);
+}
+})
  .catch(err=>console.log(err))
  }
   return (
     <div className="signup">
     <div className="signup_logo">
     <img src={Logo} alt="" />
+    {message?
+      <p className='signup_status'><ErrorOutlineIcon/>&nbsp;{" "}{message}</p>
+      :
+      <p></p>
+    }
+  
     </div>
     <div className="signup_fields">
     <div>
