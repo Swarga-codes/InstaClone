@@ -144,7 +144,7 @@ if(data.data[0].followers.includes(JSON.parse(localStorage.getItem("users"))._id
    <Link to='/'><HomeIcon/></Link>
    <Link to='/myfollowing'><ExploreIcon/></Link>
    <Link to='/createposts'><AddBoxIcon/></Link>
-   <SearchIcon/>
+   <Link to='/search'><SearchIcon/></Link>
    <Link to='/profile'><PersonIcon/></Link>
    </div>
     </div>

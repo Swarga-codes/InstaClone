@@ -11,6 +11,7 @@ import CreatePosts from './Components/CreatePosts/CreatePosts';
 import {commentContext} from './context/comments'
 import UserProfile from './Components/UserProfile/UserProfile';
 import MyFollow from './Components/MyFollowing/MyFollow';
+import Search from './Components/Search/Search';
 
 
 
@@ -50,6 +51,7 @@ function App() {
     <Route exact path='/profile' element={<Profile/>}/>
     <Route exact path='/createposts' element={<CreatePosts/>}/>
     <Route exact path='/profiles/:userId' element={<UserProfile/>}/>
+    <Route exact path='/search' element={<Search/>}/>
     </Routes>
     </commentContext.Provider>
   );

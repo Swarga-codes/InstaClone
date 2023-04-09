@@ -35,7 +35,8 @@ function MyFollow() {
         postId:id
       })
     }).then(res=>res.json())
-    .then(response=>{console.log(response);
+    .then(response=>{
+      // console.log(response);
     updatePage(response);
     })
     .catch(err=>console.log(err))
@@ -119,7 +120,7 @@ const UnlikePosts = (id)=>{
     }
   }).then(res=>res.json())
   .then(data=>{
-    console.log(data);
+    // console.log(data);
     setData(data);
   })
   .catch(err=>console.log(err))
@@ -165,7 +166,7 @@ const UnlikePosts = (id)=>{
 <Link to='/'><HomeIcon/></Link>
 <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
 <Link to='/createposts'><AddBoxIcon/></Link>
-<SearchIcon/>
+<Link to='/search'><SearchIcon/></Link>
 <Link to='/profile'><PersonIcon/></Link>
 </div>
 <div className={showComment?"comment_details":"comment_details_hidden"}>

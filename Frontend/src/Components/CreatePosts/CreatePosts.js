@@ -113,7 +113,7 @@ function CreatePosts() {
       <Link to='/'><HomeIcon/></Link>
       <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
       <Link to='/createposts'><AddBoxIcon/></Link>
-      <SearchIcon/>
+      <Link to='/search'><SearchIcon/></Link>
       <Link to='/profile'><PersonIcon/></Link>
       </div>
     </div>

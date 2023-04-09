@@ -45,7 +45,8 @@ fetch(`http://localhost:5000/users/${JSON.parse(localStorage.getItem('users'))._
     'Authorization':'Bearer '+localStorage.getItem('jwt')
   }
 }).then(res=>res.json())
-.then(data=>{console.log("Profile data ",data);
+.then(data=>{
+  // console.log("Profile data ",data);
 setPosts(data.result);
 setprofile(data.data[0]);
 })
@@ -102,7 +103,7 @@ setprofile(data.data[0]);
    <Link to='/'><HomeIcon/></Link>
    <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
    <Link to='/createposts'><AddBoxIcon/></Link>
-   <SearchIcon/>
+   <Link to='/search'><SearchIcon/></Link>
    <Link to='/profile'><PersonIcon/></Link>
    </div>
     </div>
