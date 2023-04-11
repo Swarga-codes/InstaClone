@@ -44,6 +44,9 @@
     color: #fff;
     border: none;
 }
+.create input{
+    display: none;
+}
 @media (max-width:991px){
     .createPostsCard{
         margin: 0;

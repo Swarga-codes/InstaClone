@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../SideNav/Navbar";
 import "./CreatePosts.css";
 import Logo from '../../assets/logo.png'
@@ -11,6 +11,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate } from "react-router-dom";
 import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 function CreatePosts() {
+  const addPic=useRef();
   const navigator=useNavigate();
   const [captions, setCaptions] = useState("");
   const [image, setImage] = useState("");
@@ -85,9 +86,11 @@ function CreatePosts() {
             src="https://img.icons8.com/sf-black-filled/256/image.png"
             id="output"
             alt="no preview"
+            onClick={()=>addPic.current.click()}
           />
           <br />
           <input
+          ref={addPic}
             type="file"
             name="file"
             id="file"
@@ -96,6 +99,7 @@ function CreatePosts() {
               loadFile(e);
               setImage(e.target.files[0]);
             }}
+          
           />
         </div>
         <div className="add_captions">
