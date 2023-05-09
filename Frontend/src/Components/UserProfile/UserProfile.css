@@ -82,6 +82,7 @@
 .profile_header{
     margin: 0rem 0.5rem;
     padding-top: 5rem;
+    justify-content: center;
 }
 .profile_reach{
     /* width: max-content; */
