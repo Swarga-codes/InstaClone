@@ -6,7 +6,7 @@ import Logo from '../../assets/logo.png'
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import ExploreIcon from '@mui/icons-material/Explore';
+import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import PendingIcon from '@mui/icons-material/Pending';
@@ -36,7 +36,7 @@ function Search() {
   </div>
   <div className="responsive_navfooter">
   <Link to='/'><HomeIcon/></Link>
-  <Link to='/myfollowing'><ExploreIcon/></Link>
+  <Link to='/myfollowing'><SwitchAccountOutlinedIcon/></Link>
   <Link to='/createposts'><AddBoxIcon/></Link>
   <Link to='/search'><SearchIcon/></Link>
   <Link to='/profile'><PersonIcon/></Link>
