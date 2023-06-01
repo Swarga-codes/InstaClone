@@ -88,12 +88,14 @@ const{comment,setComment}=useContext(commentContext);
               type="text"
               name="comment"
               id="name"
+              value={comment}
               placeholder="Enter a comment..."
               onChange={(e) => setComment(e.target.value)}
             />
             <button
               onClick={() => {
                 createComment(comment, items._id);
+                setComment('');
               // detailDisp();
               }}
             >
